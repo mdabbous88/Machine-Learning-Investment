@@ -16,6 +16,10 @@ The Simple Moving Average (SMA) is a simple and most commonly used in technical 
 
 ## ML Mockup
 
-For the Machine Learning (ML) we will use the **sklearn.linear_model.LinearRegression** to predict the **Adjusted Close Price**
+For the Machine Learning we will use the **sklearn.linear_model.LinearRegression** to predict the **Adjusted Close Price**
 
 ![ML Mockup](Resources/ML.png)
+
+## Database Schema
+
+![Database Schema](Resources/postgreSQL.png)
