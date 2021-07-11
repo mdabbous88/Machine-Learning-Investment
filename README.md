@@ -5,7 +5,7 @@ Purpose and reason:
 Data access: 
 
 
-![Process Flow Diagram](./Resources/Process Flow Diagram.png)
+![Process Flow Diagram](./PFD.png)
 
 ---
 
