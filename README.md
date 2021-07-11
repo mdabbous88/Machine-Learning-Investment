@@ -22,4 +22,4 @@ For the Machine Learning we will use the **sklearn.linear_model.LinearRegression
 
 ## Database Schema
 
-![Database Schema](Resources/postgreSQL.png)
+![Database Schema](Resources/PostgreSQL.png)
