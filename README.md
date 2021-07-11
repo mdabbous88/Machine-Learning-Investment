@@ -1,5 +1,12 @@
 # Group13
 
 Purpose and reason: 
+
 Data access: 
-hi from saeed
+
+
+![Process Flow Diagram](./Resources/Process Flow Diagram.png)
+
+---
+
+![Saeed Al-Yacoubi](./Resources/qr-code.png)
