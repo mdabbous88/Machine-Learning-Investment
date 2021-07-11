@@ -9,4 +9,8 @@ The project goal is to determine if there is any correlation between stock price
 Simple Moving Average
 
 The Simple Moving Average (SMA) is a simple and most commonly used in technical analysis because it helps smooth out the price data over a specified time frame by creating an updated average price.
-Data access: 
+
+## Application Process Flow Diagram
+
+![Process Flow Diagram](Resources/PFD.png)
+
