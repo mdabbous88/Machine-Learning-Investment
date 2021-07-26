@@ -15,7 +15,7 @@ The relative strength index (RSI) is a momentum indicator used in technical anal
 
 ## Application Process Flow Diagram
 
-![PFD_diagram](https://github.com/mdabbous88/Group13/blob/Ali/Resources/PFD.png)
+![PFD diagram](Resources/PFD.png)
 
 ## ML Mockup
 
