@@ -34,6 +34,6 @@ For the Machine Learning we will use the **sklearn.linear_model.LinearRegression
 ![Database Schema](Resources/PostgreSQL.png)
 
 ##Presentation link on Google Slides
-![Presentation](https://docs.google.com/presentation/d/1Vej1m3EWoMAJkXPUiXadzJGpaRmrptuw0HYNU-bFQzo/edit#slide=id.ge9090756a_1_232)
+![](https://docs.google.com/presentation/d/1Vej1m3EWoMAJkXPUiXadzJGpaRmrptuw0HYNU-bFQzo/edit#slide=id.ge9090756a_1_232)
 Note: presentation contains Dashboard Storyboard.
 
