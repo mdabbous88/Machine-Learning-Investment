@@ -13,9 +13,15 @@ A Bollinger Bands is a technical analysis tool defined by a set of trendlines pl
 ## Relative Strength Index
 The relative strength index (RSI) is a momentum indicator used in technical analysis that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of a stock or other asset.
 
+<<<<<<< HEAD
 ## Application Process Flow Diagram
 
 ![PFD diagram](Resources/PFD.png)
+=======
+##Application Process Flow Diagram
+
+![PFD_diagram](https://github.com/mdabbous88/Group13/blob/Ali/Resources/PFD.png)
+>>>>>>> 8992fd54d5b3e7de4719eb46d604482382cfb796
 
 ## ML Mockup
 
