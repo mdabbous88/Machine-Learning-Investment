@@ -10,22 +10,28 @@ import plotly.express as px
 import pandas as pd
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
-
+import mlinv
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 
-def generateFig(symble='MMM'):
+def generateFig(symble='AAPL'):
     # 1. get data from database based on symble
     # 2. make it as a datafrome
     # 3. modify the column name as the go Figure
-    df = pd.read_csv(symble+'.csv')
-    fig = go.Figure(data=[go.Candlestick(x=df['Date'], open=df['Open'], high=df['High'], low=df['Low'], close=df['Close'])])
+    # df = pd.read_csv(symble+'.csv')
+    
+    # df = mlinv.runAll(symble)
+    df = mlinv.getDataWithIndicator(symble)
+    print(df.columns)
+
+    fig = go.Figure(data=[go.Candlestick(x=df['Market_date'], open=df['Open Price $'], high=df['High Price $'], low=df['Low Price $'], close=df['Close Price $'])])
+    print('fig generated')
     return fig
 
 def generateDropdownList():
-    df = pd.read_csv('constituents.csv')
+    df = pd.read_csv('stocks.csv')
     droptown_items = []
     for index, row in df.iterrows():
         droptown_items.append({'label': row['Name'], 'value': row['Symbol']})

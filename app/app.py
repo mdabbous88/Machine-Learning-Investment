@@ -11,18 +11,23 @@ import pandas as pd
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import mlinv
-
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 
-def generateFig(symble='MMM'):
+def generateFig(symble='AAPL'):
     # 1. get data from database based on symble
     # 2. make it as a datafrome
     # 3. modify the column name as the go Figure
-    df = mlinv.getStockData(symble)
+    # df = pd.read_csv(symble+'.csv')
+    
+    # df = mlinv.runAll(symble)
+    df = mlinv.getDataWithIndicator(symble)
+    print(df.columns)
+
     fig = go.Figure(data=[go.Candlestick(x=df['Market_date'], open=df['Open Price $'], high=df['High Price $'], low=df['Low Price $'], close=df['Close Price $'])])
+    print('fig generated')
     return fig
 
 def generateDropdownList():
@@ -43,6 +48,10 @@ app.layout = html.Div(children=[
             value='MMM'
         ),
         dcc.Graph(id='cs-graphic'),
+        dcc.Input(id="input1", type="text", placeholder="", style={'marginRight':'10px'}),
+        dcc.Input(id="input2", type="text", placeholder="", debounce=True),
+                html.Div(id="output"),
+        
 
         html.Div(id='my-output')
     ])
@@ -56,6 +65,14 @@ app.layout = html.Div(children=[
 def update_output_div(input_value):
     # logic to change the chart
     return generateFig(input_value)
+
+@app.callback(
+    Output("output", "children"),
+    Input("input1", "value"),
+    Input("input2", "value"),
+)
+def update_output(input1, input2):
+    return u'Input 1 {} and Input 2 {}'.format(input1, input2)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
