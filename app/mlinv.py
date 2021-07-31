@@ -259,16 +259,18 @@ def trainModel(stock_df):
 
     training_score = model.score(X_train, y_train)
     testing_score = model.score(X_test, y_test)
+
+    print("Training ML is working")
     return model
 
 # Close price prediction
-def predictPrice(model, Open_price, High_price,  Low_price, Volume):
+def predictPrice(stock_df, Open_price, High_price,  Low_price, Volume):
 
     # Open_price= input("Please enter an Open Price:\n")
     # High_price= input("Please enter an High Price:\n")
     # Low_price= input("Please enter an Low Price:\n")
     # Volume= input("Please enter an Volume:\n")
-
+    model = trainModel(stock_df)
     X_pred = [Open_price,High_price, Low_price, Volume]
     X_pred = np.array(X_pred).reshape(1,4)
     X_pred
