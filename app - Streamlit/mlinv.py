@@ -264,15 +264,14 @@ def trainModel(stock_df):
     return model
 
 # Close price prediction
-def predictPrice(symbol, Open_price, High_price,  Low_price, Volume):
-    print("THIS IS PREDICTION FUNCTION")
-    print("The symbol is ",symbol)
-    stock_df = getDataFromDB(symbol)
-    model = trainModel(stock_df)
+def predictPrice(model, Open_price, High_price,  Low_price, Volume):
     X_pred = [Open_price,High_price, Low_price, Volume]
     X_pred = np.array(X_pred).reshape(1,4)
     X_pred
     y_pred = model.predict(X_pred)
     return y_pred
-    #print(f"The predicted closing price for the day is  {y_pred}")
 
+def train_and_predict(stock_df, Open_price, High_price,  Low_price, Volume):
+    model = trainModel(stock_df)
+    return predictPrice(model, Open_price, High_price,  Low_price, Volume)
+    

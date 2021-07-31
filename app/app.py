@@ -48,14 +48,7 @@ app.layout = html.Div(children=[
             value='MMM'
         ),
         dcc.Graph(id='cs-graphic'),
-        dcc.Input(id="symbol", type="text", placeholder="Stock", style={'marginRight':'10px'}),
-        dcc.Input(id="input_open", type="text", placeholder="Open Price", style={'marginRight':'10px'}),
-        dcc.Input(id="input_high", type="text", placeholder="High Price", style={'marginRight':'10px'}),
-        dcc.Input(id="input_low", type="text", placeholder="Low Price", style={'marginRight':'10px'}),
-        dcc.Input(id="input_vol", type="text", placeholder="Volume", debounce=True),
-                html.Div(id="output"),
-        
-
+        html.Div(id="output"),
         html.Div(id='my-output')
     ])
 
@@ -69,18 +62,27 @@ def update_output_div(input_value):
     # logic to change the chart
     return generateFig(input_value)
 
-@app.callback(
-    Output("output", "children"),
-    Input("symbol", "value"),
-    Input("input_open", "value"),
-    Input("input_high", "value"),
-    Input("input_low", "value"),
-    Input("input_vol", "value")
+app.layout = html.Div(
+        dcc.Input(id="symbol", type="text", placeholder="Stock", style={'marginRight':'10px'}),
+        dcc.Input(id="input_open", type="text", placeholder="Open Price", style={'marginRight':'10px'}),
+        dcc.Input(id="input_high", type="text", placeholder="High Price", style={'marginRight':'10px'}),
+        dcc.Input(id="input_low", type="text", placeholder="Low Price", style={'marginRight':'10px'}),
+        dcc.Input(id="input_vol", type="text", placeholder="Volume", debounce=True),
+        html.Button('Submit', id='submit-val', n_clicks=0)
 )
-def update_output(input_value, input1, input2, input3, input4):
-    df = generateFig(input_value)
-    prediction = mlinv.predictPrice(df,input1, input2, input3,  input4)
-    return u'Open Price {} and High Price {} and Low Price {} and Volume {} and the prediction for today closing price is {}'.format(input1, input2, input3, input4, prediction)
+
+# @app.callback(
+#     dash.dependencies.Output("output", "children"),
+#     [dash.dependencies.Input("symbol", "value")],
+#     [dash.dependencies.Input("input_open", "value")],
+#     [dash.dependencies.Input("input_high", "value")],
+#     [dash.dependencies.Input("input_low", "value")],
+#     [dash.dependencies.Input("input_vol", "value")]
+# )
+# def update_output(symbol, input1, input2, input3, input4):
+#     print("THIS IS app.py update_output function")
+#     prediction = mlinv.predictPrice(symbol, input1, input2, input3,  input4)
+#     return u'Open Price {} and High Price {} and Low Price {} and Volume {} and the prediction for today closing price is {}'.format(input1, input2, input3, input4, prediction)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
