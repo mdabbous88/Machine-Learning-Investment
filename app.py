@@ -17,13 +17,9 @@ st.subheader("Using Linear Regression ML")
 st.write("You can also try [Classification ML](https://stock-analyse.herokuapp.com)")
 st.write("---")
 st.sidebar.title("Stock Symbols")
-# symbol = st.sidebar.text_input("Input Ticker Symbol")
+
 symbols = tuple(pd.read_csv('stocks.csv')["Symbol"].to_list())
 symbol = st.sidebar.selectbox(label="Select stock symbol", options=symbols)
-
-
-def fetchData(symbol):
-    return mlinv.runAll(symbol)
 
 if symbol:
     df = mlinv.runAll(symbol)
@@ -40,4 +36,4 @@ with st.form('my_form'):
 
     if predict_button:
         prediction = mlinv.train_and_predict(df, input_open, input_high,  input_low, input_vol)
-        st.write(prediction)
+        st.subheader(f'{prediction[0]:.3f}')
