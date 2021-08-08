@@ -42,6 +42,9 @@ For the Machine Learning we will use the **sklearn.linear_model.LinearRegression
 
 Note: presentation contains Dashboard Storyboard.
 
+<<<<<<< HEAD
 ## Online App
 
 [link for online ML INVESTMENT APP](https://mlinvestment.herokuapp.com/)
+=======
+>>>>>>> main
