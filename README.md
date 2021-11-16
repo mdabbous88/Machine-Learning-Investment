@@ -1,4 +1,4 @@
-# Group13
+# Machine Learning Investment
 
 ## Project purpose
 
